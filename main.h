@@ -38,6 +38,8 @@ void signal_handler(int sig_num);
 void extract_external_commands(char **external_commands);
 
 void execute_external_commands(char *input_string);
+pid_t exec_one_cmd(char *cmd);
 void exec_n_cmd(char *input,int count);
+char **parse_command(char *cmd, int *argc);
 
 #endif

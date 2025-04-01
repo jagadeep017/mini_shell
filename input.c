@@ -3,7 +3,7 @@
 void scan_input(char *prompt, char *input_string){
     while(1){        
         printf("%s ",prompt);
-        scanf(" %[^\n]s",input_string);
+        scanf(" %99[^\n]s",input_string);
         if(!strncmp("PS1",input_string,3)){
             char *temp=input_string+3;
             while(*temp){
