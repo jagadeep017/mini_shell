@@ -25,21 +25,34 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-
+//scan input command
 void scan_input(char *prompt, char *input_string);
+
+//extract first word of the command
 char *get_command(char *input_string);
 
-void copy_change(char *prompt, char *input_string);
-
+//function to check if command is builtin or external
 int check_command_type(char *command, char **ext_cmd);
-void echo(char *input_string, int status);
+
+//execute builtin commands
 void execute_internal_commands(char *input_string);
+
+//signal handler for SIGINT, SIGTSTP and SIGCHLD
 void signal_handler(int sig_num);
+
+//extract external commands from the txt file
 void extract_external_commands(char **external_commands);
 
+//execute external commands
 void execute_external_commands(char *input_string);
-pid_t exec_one_cmd(char *cmd);
-void exec_n_cmd(char *input,int count);
+
+//execute one command
+void exec_one_cmd(char *cmd);
+
+//execute multiple commands
+void exec_n_cmd(char *input, int count);
+
+//parse command string by spaces
 char **parse_command(char *cmd, int *argc);
 
 #endif
